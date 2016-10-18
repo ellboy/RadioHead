@@ -692,6 +692,9 @@
 #define RH_PLATFORM_ESP8266          11
 #define RH_PLATFORM_STM32F2          12
 #define RH_PLATFORM_CHIPKIT_CORE     13
+#define RH_PLATFORM_CHIBIOS          14
+
+#define  RH_PLATFORM RH_PLATFORM_CHIBIOS
 
 ////////////////////////////////////////////////////
 // Select platform automatically, if possible
@@ -837,6 +840,14 @@
  #define RH_HAVE_SERIAL
 #include <netinet/in.h> // For htons and friends
 
+#elif (RH_PLATFORM == RH_PLATFORM_CHIBIOS)
+#define RH_HAVE_HARDWARE_SPI
+// #define RH_HAVE_SERIAL
+#define PROGMEM
+ #include <chibios/ChibiosInterface.h>
+ #include <stdint.h>
+ #include <string.h>
+ #include <math.h>
 #else
  #error Platform unknown!
 #endif

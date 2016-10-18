@@ -6,9 +6,10 @@
  */
 
 #include <stdint.h>
-#include "RH_NRF24_wrapper.h"
+//#include "RH_NRF24_wrapper.h"
 #include <RH_NRF24.h>
 #include <debug.h>
+#include "configuration.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -70,6 +71,7 @@ bool RH_NRF24_waitAvailable(void) {
 	nrf24.waitAvailable();
 	return true;
 }
+
 #ifdef __cplusplus
 }
 #endif

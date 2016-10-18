@@ -34,7 +34,7 @@ extern "C" {
 
 void SPIClass::begin()
 {
-	print_dbg("Debug: %s\r\n", __func__);
+	//print_dbg("Debug: %s\r\n", __func__);
 
 //  //Set SPI Defaults
 //  uint16_t divider = BCM2835_SPI_CLOCK_DIVIDER_256;
@@ -80,7 +80,7 @@ void SPIClass::begin()
 
 void SPIClass::end()
 {
-	print_dbg("Debug: %s\r\n", __func__);
+	//print_dbg("Debug: %s\r\n", __func__);
 //  //End the SPI
 //  bcm2835_spi_end();
 }
@@ -143,12 +143,16 @@ void digitalWrite(unsigned char pin, unsigned char value)
 
 }
 
+#ifndef ST2MS
+#define ST2MS(n) (((n) * 1000UL + NIL_CFG_ST_FREQUENCY - 1UL) /              \
+		NIL_CFG_ST_FREQUENCY)
+#endif
+
 unsigned long millis() {
 //	print_dbg("Debug: %s\r\n", __func__);
 //	print_dbg("Debug TODO: %s\r\n", __func__);
 //
-#define ST2MS(n) (((n) * 1000UL + NIL_CFG_ST_FREQUENCY - 1UL) /              \
-		NIL_CFG_ST_FREQUENCY)
+
 //
 //	print_dbg("Debug: %s\r\n", __func__);
 //	print_dbg("1 ms = %d ticks\r\n", MS2ST(1));
@@ -169,17 +173,15 @@ unsigned long millis() {
 //  return difference;
 }
 
-void delay (unsigned long ms)
-{
+void delay(unsigned long ms) {
 	//print_dbg("Debug: %s: %d\r\n", __func__, ms);
 	chThdSleepMilliseconds(ms);
 
 }
 
-long random(long min, long max)
-{
-	print_dbg("Debug: %s\r\n", __func__);
-  long diff = max - min;
-  long ret = diff * rand() + min;
-  return ret;
+long random(long min, long max) {
+	//print_dbg("Debug: %s\r\n", __func__);
+	long diff = max - min;
+	long ret = diff * rand() + min;
+	return ret;
 }

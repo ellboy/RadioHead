@@ -366,6 +366,9 @@ void RHHardwareSPI::begin()
       break;
   }
   SPI.begin(divider, bitOrder, dataMode);
+#elif (RH_PLATFORM == RH_PLATFORM_CHIBIOS)
+ #warning TODO
+  SPI.begin();
 #else
  #warning RHHardwareSPI does not support this platform yet. Consider adding it and contributing a patch.
 #endif

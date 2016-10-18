@@ -470,6 +470,8 @@ public:
     /// \return  true if everything was successful
     bool        init();
 
+    void setChipEnablePin(uint8_t chipEnablePin);
+
     /// Reads a single register from the NRF24
     /// \param[in] reg Register number, one of RH_NRF24_REG_*
     /// \return The value of the register

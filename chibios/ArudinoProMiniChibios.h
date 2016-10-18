@@ -8,6 +8,8 @@
 #ifndef RADIOHEAD_RHUTIL_ARUDINOPROMINICHIBIOS_H_
 #define RADIOHEAD_RHUTIL_ARUDINOPROMINICHIBIOS_H_
 
+#include <avr/pgmspace.h>
+
 #include "hal.h"
 
 typedef struct
@@ -22,7 +24,7 @@ typedef struct
 //C - IOPORT3
 //D - IOPORT4
 
-GPIOPin pins[] =
+const GPIOPin pins[]  PROGMEM =
 {
 		{"IOPORT4", IOPORT4, 0},	// 0 - PD0
 		{"IOPORT4", IOPORT4, 1},	// 1 - PD1

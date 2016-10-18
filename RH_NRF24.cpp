@@ -56,6 +56,10 @@ bool RH_NRF24::init()
     return true;
 }
 
+void RH_NRF24::setChipEnablePin(uint8_t chipEnablePin) {
+	_chipEnablePin = chipEnablePin;
+}
+
 // Use the register commands to read and write the registers
 uint8_t RH_NRF24::spiReadRegister(uint8_t reg)
 {
